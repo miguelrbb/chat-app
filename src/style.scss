@@ -1,0 +1,418 @@
+
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+$main-color: rgb(181, 181, 252);
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #999; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+//Register and Login pages
+.formContainer {
+  background-color: $main-color;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .formWrapper {
+    background-color: white;
+    padding: 20px 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .logo {
+      color:$main-color;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .title {
+      color:$main-color;
+      font-size: 12px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input {
+        padding: 15px;
+        border: none;
+        width: 250px;
+        border-bottom: 1px solid $main-color;
+        
+      &::placeholder {
+        color: rgb(175, 175, 175);
+      }
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+        img {
+          height: 40px;
+        }
+
+        span {
+          font-size: 14px;
+          color:rgb(175, 175, 175);
+        }
+      }
+
+      label:hover {
+        filter:brightness(0.8);
+      }
+
+      button {
+        background-color: $main-color;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: rgb(146, 146, 199);
+      }
+
+    }
+
+    p {
+      color: rgb(134, 134, 168);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+}
+
+
+//Home page
+.home {
+  background-color: $main-color;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 85%;
+    height: 85%;
+    display: flex;
+    overflow: hidden;
+
+    @include tablet {
+      width: 90%;
+    }
+
+    .sidebar {
+      min-width: 300px;
+      max-width: 400px;
+      flex: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.35);
+        height: 50px;
+        padding: 10px;
+        justify-content: space-between;
+        color: white;
+
+        .logo {
+          font-weight: bold;
+
+          @include tablet {
+            display: none;
+          }
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            background-color: #ddddf7;
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          button {
+            background-color: #5d5b8d;
+            color: #ddddf7;
+            font-size: 12px;
+            padding: 8px;
+            border: none;
+
+            @include tablet {
+              position: absolute;
+              bottom: 10px;
+            }
+          }
+          button:hover {
+            background-color: #6765a1;
+          }
+        }
+      }
+      
+      .search {
+        border-bottom: 1px solid grey;
+
+        .searchForm {
+          padding: 10px;
+
+          input {
+            background-color: transparent;
+            border: none;
+            color: white;
+            outline: none;
+
+            &::placeholder {
+              color: lightgrey;
+            }
+          }
+        }
+      }
+
+      .userChat {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        gap: 10px;
+        color: white;
+
+        &:hover {
+          background-color: #4f4f6b;
+        }
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .userChatInfo {
+          span {
+            font-size: 16px;
+            font-weight: 600;
+          }
+          p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 13px;
+            font-weight: 400;
+            color: rgb(184, 184, 184)
+          }
+        }
+      }
+    }
+
+    .chat {
+      flex: 2;
+
+      .navbar {
+        background-color: rgba(0, 0, 0, 0.675);
+        display: flex;
+        height: 50px;
+        padding: 10px;
+        align-items: center;
+        color: white;
+        justify-content: space-between;
+
+        .chatInformation {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          span {
+            font-size: 17px;
+            font-weight: 600;
+          }
+        }
+        
+        img {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .chatIcons {
+          display: flex;
+          align-items: center;
+          height: 100%;
+
+          img {
+            height: 32px;
+            width: 32px;
+          }
+        }
+      }
+
+      .messages {
+        height: calc(100% - 141px);
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        .message {
+          display: flex;
+          margin: 10px 20px;
+
+          .messageContent {
+            display: flex;
+            position: relative;
+            background-color: white;
+            padding: 3px;
+            border-radius: 0 8px 8px 8px;
+            max-width: 80%;
+            box-shadow: 1px 2px 2px rgb(101, 99, 99);
+
+            .mainContent {
+              display: flex;
+              flex-direction: column;
+
+              p {
+                display: flex;
+                margin: 4px;
+              }
+
+              img {
+                max-width: 250px;
+                border-radius: 8px;
+              }
+            }
+
+            span {
+              height: min-content;
+              margin-left: 5px;
+              position: relative;
+              right: 3px;
+              bottom: calc(-100% + 15px);
+              font-size: 11px;
+              color: grey;
+            }
+          }
+
+          &.owner {
+            flex-direction: row-reverse;
+
+            .messageContent {
+              background-color: rgb(203, 231, 245);
+              display: flex;
+              padding: 3px;
+              border-radius: 8px 0px 8px 8px;
+
+              .mainContent {
+                display: flex;
+                flex-direction: column;
+  
+                p {
+                  display: flex;
+                  margin: 4px;
+                  gap: 10px;
+                }
+  
+                img {
+                  max-width: 250px;
+                  border-radius: 8px;
+                }
+              }
+  
+              span {
+                margin-left: 5px;
+                position: relative;
+                right: 3px;
+                bottom: calc(-100% + 15px);
+                font-size: 11px;
+                color: grey;
+              }
+            }
+          }
+        }
+      }
+
+      .input {
+        display: flex;
+        align-items: center;
+        position: relative;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: white;
+
+
+        input {
+          border: none;
+          outline: none;
+          height: 50px;
+          width: 100%; 
+          font-size: 16px;
+
+          &::placeholder {
+            color: grey;
+          }
+        }
+        
+        .send {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            cursor:pointer;
+            height: 24px;
+            width: 24px;
+          }
+
+          button {
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            background-color: #5d5b8d;
+          }
+        }
+      }
+    }
+  }
+}
+
