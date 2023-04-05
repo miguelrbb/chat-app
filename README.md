@@ -1,3 +1,8 @@
+# This project was made thanks to a Lamadev tutorial
+I decided to do this app because was an interesting way to learn some technologies like React and Sass.
+I corrected some issues he had in the first version. With all that, it was very challenging to achive the final result.
+https://www.youtube.com/c/lamadev
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
